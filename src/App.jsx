@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import loadFromLS from './components/scripts/loadFromLS';
 import setToLS from './components/scripts/setToLS';
@@ -12,8 +12,9 @@ function App() {
   const [info, setInfo] = useState(() => {
     return loadFromLS(LOCAL_STORAGE_KEY);
   });
-
-  setToLS(info, LOCAL_STORAGE_KEY);
+  useEffect(() => {
+    setToLS(info, LOCAL_STORAGE_KEY);
+  }, [info]);
 
   const totalFeedback = info.good + info.neutral + info.bad;
   const percentage = Math.round(
