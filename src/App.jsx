@@ -5,6 +5,7 @@ import setToLS from './components/scripts/setToLS';
 import Description from './components/Description/Description';
 import Options from './components/Options/Options';
 import Feedback from './components/Feedback/Feedback';
+import Notification from './components/Notification/Notification';
 
 function App() {
   const LOCAL_STORAGE_KEY = 'info';
@@ -47,7 +48,7 @@ function App() {
           data={info}
         />
       ) : (
-        'No feedback yet'
+        <Notification message="No feedback yet" />
       )}
     </>
   );
